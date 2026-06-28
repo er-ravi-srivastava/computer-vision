@@ -1,0 +1,10 @@
+streamlit
+opencv-python-headless
+ultralytics
+transformers
+einops
+timm
+pillow
+matplotlib
+torch
+torchvision
