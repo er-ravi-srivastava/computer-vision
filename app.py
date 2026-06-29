@@ -57,7 +57,7 @@ if uploaded_file is not None:
     
     with col1:
         st.subheader("Original Image")
-        st.image(image, use_container_width=True)
+        st.image(image, use_column_width=True)
         
     with col2:
         st.subheader("Processed Output")
@@ -73,7 +73,7 @@ if uploaded_file is not None:
             with st.spinner("Running YOLO11 inference..."):
                 output_image, summary = run_yolo(image, task_type=task_arg, conf=conf, iou=iou)
                 
-            st.image(output_image, use_container_width=True)
+            st.image(output_image, use_column_width=True)
             
             if summary:
                 st.write("### Detection Summary")
@@ -121,7 +121,7 @@ if uploaded_file is not None:
                 elif florence_task == "Extract Text with Bounding Boxes (OCR + Region)":
                     st.write("Text highlighted in red bounding boxes:")
                     highlighted_image = overlay_ocr_regions(image, result)
-                    st.image(highlighted_image, use_container_width=True)
+                    st.image(highlighted_image, use_column_width=True)
                     st.json(result)
                     
                 elif florence_task == "Visual Question Answering (VQA)":
@@ -184,7 +184,7 @@ if uploaded_file is not None:
                 img_cv = cv2.cvtColor(img_cv, cv2.COLOR_BGR2RGB)
                 
             # Render final output image
-            st.image(img_cv, use_container_width=True)
+            st.image(img_cv, use_column_width=True)
 
 else:
     st.info("👈 Please upload an image using the sidebar to begin analyzing!")
